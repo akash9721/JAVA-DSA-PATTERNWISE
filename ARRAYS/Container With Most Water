@@ -1,0 +1,21 @@
+++++++++++++++++++++++++++++++++2 pointer approach ++++++++++++++++++++++++++++++++++++++++++
+class Solution {
+    public int maxArea(int[] arr) {
+        int left=0;
+        int right=arr.length-1;
+        int maxWater=0;
+        while(left<right){
+           int width=right-left;
+           int height=Math.min(arr[right],arr[left]);
+           int currWater=width*height;
+           maxWater=Math.max(maxWater,currWater);
+
+           if(arr[left]<arr[right])
+                left++;
+            else
+                right--;
+        }
+        return maxWater;
+    }
+}
+
