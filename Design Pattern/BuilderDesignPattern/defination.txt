@@ -1,0 +1,76 @@
+3. Builder Design Pattern
+The Builder pattern simplifies complex object creation by breaking it into step-by-step construction processes. It helps create objects with many optional parameters.
+
+Steps to Achieve Builder Pattern in Java:
+Create a static inner Builder class inside the main class.
+Define private instance variables inside the main class.
+Provide setter-like methods inside the Builder class but return the Builder instance.
+Provide a build() method that returns the main class object.
+Example: Builder Pattern
+java
+Copy
+Edit
+// Step 1: Define the main class
+class Laptop {
+    // Step 2: Private fields
+    private String processor;
+    private int ram;
+    private int storage;
+
+    // Step 3: Private constructor
+    private Laptop(LaptopBuilder builder) {
+        this.processor = builder.processor;
+        this.ram = builder.ram;
+        this.storage = builder.storage;
+    }
+
+    // Step 4: Static nested Builder class
+    public static class LaptopBuilder {
+        private String processor;
+        private int ram;
+        private int storage;
+
+        // Setter-like methods
+        public LaptopBuilder setProcessor(String processor) {
+            this.processor = processor;
+            return this;
+        }
+
+        public LaptopBuilder setRam(int ram) {
+            this.ram = ram;
+            return this;
+        }
+
+        public LaptopBuilder setStorage(int storage) {
+            this.storage = storage;
+            return this;
+        }
+
+        // Step 5: Build method to create Laptop object
+        public Laptop build() {
+            return new Laptop(this);
+        }
+    }
+
+    public void showSpecs() {
+        System.out.println("Processor: " + processor + ", RAM: " + ram + "GB, Storage: " + storage + "GB");
+    }
+}
+
+// Usage
+public class Main {
+    public static void main(String[] args) {
+        Laptop laptop = new Laptop.LaptopBuilder()
+                .setProcessor("Intel i7")
+                .setRam(16)
+                .setStorage(512)
+                .build();
+
+        laptop.showSpecs(); // Output: Processor: Intel i7, RAM: 16GB, Storage: 512GB
+    }
+}
+💡 Benefits:
+✔ Simplifies object creation
+✔ Provides immutable objects
+✔ Avoids telescoping constructor problem
+
