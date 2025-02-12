@@ -1,0 +1,55 @@
+2. Factory Design Pattern
+The Factory pattern creates objects without specifying the exact class. It provides a common interface and delegates object creation to subclasses.
+
+Steps to Achieve Factory Pattern in Java:
+Create an interface or abstract class for the objects.
+Create multiple concrete classes implementing the interface.
+Create a Factory class with a method that returns objects based on input parameters.
+Example: Factory Pattern
+java
+Copy
+Edit
+// Step 1: Create an interface
+interface Vehicle {
+    void drive();
+}
+
+// Step 2: Create concrete implementations
+class Car implements Vehicle {
+    public void drive() {
+        System.out.println("Driving a Car.");
+    }
+}
+
+class Bike implements Vehicle {
+    public void drive() {
+        System.out.println("Riding a Bike.");
+    }
+}
+
+// Step 3: Create the Factory Class
+class VehicleFactory {
+    public static Vehicle getVehicle(String type) {
+        if ("Car".equalsIgnoreCase(type)) {
+            return new Car();
+        } else if ("Bike".equalsIgnoreCase(type)) {
+            return new Bike();
+        }
+        return null;
+    }
+}
+
+// Usage
+public class Main {
+    public static void main(String[] args) {
+        Vehicle car = VehicleFactory.getVehicle("Car");
+        car.drive(); // Output: Driving a Car.
+
+        Vehicle bike = VehicleFactory.getVehicle("Bike");
+        bike.drive(); // Output: Riding a Bike.
+    }
+}
+💡 Benefits:
+✔ Loose coupling
+✔ Better code maintainability
+✔ Centralized object creation
