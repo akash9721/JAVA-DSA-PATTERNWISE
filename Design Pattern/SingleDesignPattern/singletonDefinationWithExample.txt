@@ -1,0 +1,44 @@
+1. Singleton Design Pattern
+The Singleton pattern ensures that only one instance of a class exists throughout the application. It provides global access to this instance.
+
+Steps to Achieve Singleton Pattern in Java:
+Make the constructor private so that no one can instantiate it directly.
+Create a private static variable to hold the single instance of the class.
+Provide a public static method that returns the instance, creating it if necessary.
+Example: Singleton using Lazy Initialization (Thread-Safe)
+java
+Copy
+Edit
+public class Singleton {
+    private static Singleton instance;
+
+    // Private constructor prevents instantiation from outside
+    private Singleton() {}
+
+    // Thread-safe way to create an instance
+    public static synchronized Singleton getInstance() {
+        if (instance == null) {
+            instance = new Singleton();
+        }
+        return instance;
+    }
+
+    public void showMessage() {
+        System.out.println("Singleton Instance Created!");
+    }
+}
+Usage:
+java
+Copy
+Edit
+public class Main {
+    public static void main(String[] args) {
+        Singleton singleton = Singleton.getInstance();
+        singleton.showMessage();
+    }
+}
+💡 Alternative Implementations:
+
+Eager Initialization – Create the instance at class loading time.
+Bill Pugh Singleton (Best Approach) – Uses an inner static helper class.
+Enum Singleton – Uses an enum to ensure thread safety and serialization.
