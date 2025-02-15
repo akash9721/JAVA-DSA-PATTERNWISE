@@ -1,0 +1,6 @@
+package com.designPattern.abstractFactoryDesign;
+
+interface Payment {
+
+	void makePayment();
+}
