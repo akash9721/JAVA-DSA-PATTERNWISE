@@ -1,0 +1,13 @@
+✔ Payment (Interface): Defines a makePayment() method for all payment types.
+✔ Concrete Payment Classes (visaPayment,MastercardPayment,GooglePayPayment,PhonePayPayment): Implement Payment,
+ defining specific payment behaviors.
+✔ Abstract Factory (PaymentFactory): Declares a method getPaymentMethod() to return payment objects.
+✔ Concrete Factories (CreditCardPaymentFactory, UpiPaymentFactory): Implement getPaymentMethod() to return specific objects.
+✔ Factory Producer (PaymentFactoryProducer): Returns the correct factory based on the requested payment type.
+✔ Main Class: Demonstrates how to use the factories to get the correct payment method and process payments.
+
+
+ When to Use Abstract Factory?
+✅ When you have multiple families of related objects (like Credit Cards & UPI).
+✅ When you need to separate object creation logic from client code.
+✅ When you want to enforce consistency in object creation (ensuring a CreditCardFactory only creates credit card payments).
