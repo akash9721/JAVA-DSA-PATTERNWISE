@@ -1,0 +1,17 @@
+
+📌 What is the Decorator Pattern?
+The Decorator Design Pattern is a structural design pattern that allows you to dynamically add new functionality to objects without modifying their structure.
+This is done by wrapping objects with additional behavior at runtime.
+
+ ✅ Why Use the Decorator Pattern?
+Extends functionality at runtime without modifying the original class.
+Follows Open/Closed Principle – Open for extension, closed for modification.
+Avoids subclass explosion – No need to create multiple subclasses for every combination of behavior.
+
+🚀 Real-World Example: Coffee Shop (Interview Perspective)
+Imagine a coffee shop where:
+Customers can order a basic coffee ☕.
+They can add milk 🥛, sugar 🍬, caramel 🍯, etc., as extra toppings.
+Each topping adds cost and modifies behavior dynamically.
+  
+
