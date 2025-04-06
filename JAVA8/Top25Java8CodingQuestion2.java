@@ -94,13 +94,6 @@ public class Top25Java8CodingQuestion {
 		optional.ifPresentOrElse(x->x.stream().forEach(s->System.out.print(s+" ")),()->System.out.println("list contain null value"));
 		
 //imp	
-		/* GROUPING BY ::
-  		When you call collect(Collectors.groupingBy(classifier)), several things happen under the hood:
-		Stream Iteration: The stream is iterated over element by element.
-		Classification: For each element, the classifier function is applied. This function maps the element to a key.
-		Grouping: Elements that produce the same key are grouped together. 
-  			The result is a map where each key corresponds to a list of elements that share that key.
-  		*/
 		System.out.println("\n16) find only duplicate element with its count");
 		List<String> word=Arrays.asList("akash","swagat","vineel","akash","vineel");
 		Map<String, Long> map = word.stream().collect(Collectors.groupingBy(x->x,Collectors.counting()));
